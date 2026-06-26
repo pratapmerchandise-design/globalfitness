@@ -353,8 +353,35 @@
 
   /* ─── CAFE / AMENITIES ─── */
   #amenities { background: var(--black); }
-  .amenities-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 60px; align-items: center; margin-top: 60px; }
-  .amenities-img { width: 100%; aspect-ratio: 16/10; object-fit: cover; border: 1px solid rgba(255,107,0,0.2); }
+  .amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+}
+
+.amenities-img {
+  display: none;
+}
+
+#amenities .amenities-grid > div {
+  display: contents;
+}
+
+.amenity-item {
+  background: var(--dark2);
+  border: 1px solid rgba(255,107,0,0.18);
+  border-left: 4px solid var(--orange);
+  padding: 28px;
+  margin-bottom: 0;
+  min-height: 180px;
+}
+
+@media (max-width: 900px) {
+  .amenities-grid {
+    grid-template-columns: 1fr;
+  }
+}
   .amenity-item { display: flex; gap: 20px; align-items: flex-start; margin-bottom: 32px; }
   .amenity-icon {
     width: 48px; height: 48px; flex-shrink: 0;
@@ -831,6 +858,7 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#testimonials">Client Feedback</a></li>
     <li><a href="#trainers">Trainers</a></li>
+    <li><a href="#amenities">Amenities</a></li>
     <li><a href="#careers">Careers</a></li>
     <li><a href="#contact" class="nav-cta">Contact Us</a></li>
   </ul>
@@ -907,7 +935,7 @@
   <div class="gtf-locations__header">
     <div>
       <p class="gtf-locations__eyebrow">New Delhi</p>
-      <h2 class="gtf-locations__title">Find Your <span>GTF</span></h2>
+      <h2 class="gtf-locations__title">Find Your <span>TGF</span></h2>
     </div>
     <div class="gtf-locations__count">04</div>
   </div>
@@ -1146,7 +1174,7 @@
       </div>
       <div class="testimonial-card">
         <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">The BCA machine tracking is incredible — I can literally see my body composition change week over week. The café is a bonus; healthy food that actually tastes great.</p>
+        <p class="testimonial-text">The BCA machine tracking is incredible — I can literally see my body composition change week over week.</p>
         <div class="testimonial-author"><strong>Priya Mehta</strong><span>Member since 2020</span></div>
       </div>
       <div class="testimonial-card">
@@ -1203,34 +1231,48 @@
 <section id="amenities">
   <div class="container">
     <div class="section-eyebrow">Beyond Training</div>
-    <h2 class="section-title">Café, Spa &<br><em>Amenities</em></h2>
+    <h2 class="section-title">Amenities</h2>
     <div class="amenities-grid">
       <img class="amenities-img" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80" alt="Café Healthy Bite" loading="lazy">
       <div>
         <div class="amenity-item">
-          <div class="amenity-icon">☕</div>
+          <div class="amenity-icon">💪</div>
           <div class="amenity-info">
-            <strong>Café Healthy Bite</strong>
-            <p>Our in-house café serves nutritionally balanced and diet-friendly foods — guilt-free fast food that actually tastes great. Meal plans tailored for weight loss, muscle gain, or clean eating.</p>
+            <strong>Functional Training</strong>
+            <p>Functional training adds a fun, dynamic element to your workout, helping break the boredom and monotony of regular strength training. Through activities such as <b>Monkey Ladders, Agility Ladders, Tyre Flips, Battle Ropes, BOSU Ball exercises and Stability Ball training</b>, you build strength, endurance, balance, coordination and overall athletic performance in an engaging way.</p>
           </div>
         </div>
-        <div class="amenity-item">
-          <div class="amenity-icon">🧖</div>
-          <div class="amenity-info">
-            <strong>Steam Room & Spa</strong>
-            <p>Rejuvenate your senses in exclusive steam rooms with a combination of showers available for both men and women.</p>
-          </div>
-        </div>
+        
         <div class="amenity-item">
           <div class="amenity-icon">🏢</div>
           <div class="amenity-info">
             <strong>Group Activity Studio</strong>
-            <p>A dedicated studio for group classes and fun member events — building a sense of community that goes beyond exercise.</p>
+            <p>A dedicated studio for group classes and fun member events — building a sense of community that goes beyond exercise. We conduct <b>Aerobic’s,
+Bollywood dance,
+Bhangra,
+Yoga and
+Power Yoga</b> helping you with fitness without straining or risking any injuries</p>
+          </div>
+          
+        </div>
+        <div class="amenity-item">
+        <div class="amenity-icon">🚗</div>
+          <div class="amenity-info">
+            <strong>Ample Parking space</strong>
+            <p>Our dedicated studio hosts energetic group sessions including <b>Aerobics</b>, <b>Bollywood Dance</b>, <b>Bhangra</b>, <b>Yoga</b> and <b>Power Yoga</b>. These instructor-led classes create a motivating community atmosphere while improving <b>fitness</b>, <b>flexibility</b> and <b>overall well-being</b> without making exercise feel repetitive.</p>
+          </div>
+        </div>
+        <div class="amenity-item">
+        <div class="amenity-icon">👨‍⚕️</div>
+          <div class="amenity-info">
+            <strong>Fitness Assessments & Progress Reviews</strong>
+            <p>Every member receives <b>regular fitness assessments</b> to evaluate strength, endurance, flexibility and overall performance. This helps our trainers adjust your workouts, set achievable goals and ensure you're consistently progressing toward your fitness journey.</p>
           </div>
         </div>
       </div>
     </div>
   </div>
+  
 </section>
 
 <!-- CAREERS -->
@@ -1287,15 +1329,33 @@
         </div>
       </div>
       <div>
-        <form class="contact-form" onsubmit="return false;">
+        <form class="contact-form">
           <div class="form-row">
-            <div class="form-field"><label>Full Name</label><input type="text" placeholder="Your name"></div>
-            <div class="form-field"><label>Phone</label><input type="tel" placeholder="+91 00000 00000"></div>
+            <div class="form-field"><label>Full Name</label><input
+  type="text"
+  name="name"
+  placeholder="Your name"
+  required
+  minlength="2"
+  maxlength="50"></div>
+            <div class="form-field"><label>Phone</label><input
+  type="tel"
+  name="phone"
+  placeholder="Your phone no."
+  required
+  pattern="[0-9]{10}"
+  maxlength="10"
+  inputmode="numeric"
+  title="Please enter a valid 10-digit phone number."></div>
           </div>
-          <div class="form-field"><label>Email Address</label><input type="email" placeholder="you@email.com"></div>
+          <div class="form-field"><label>Email Address</label><input
+  type="email"
+  name="email"
+  placeholder="you@email.com"
+  required></div>
           <div class="form-field">
             <label>Interested In</label>
-            <select>
+            <select required>
               <option>Membership Enquiry</option>
               <option>Personal Training</option>
               <option>Group Classes</option>
@@ -1303,7 +1363,10 @@
               <option>Other</option>
             </select>
           </div>
-          <div class="form-field"><label>Message</label><textarea placeholder="Tell us about your fitness goals…"></textarea></div>
+          <div class="form-field"><label>Message</label><textarea
+  placeholder="Tell us about your fitness goals..."
+  minlength="10"
+  maxlength="500"></textarea></textarea></div>
           <div class="form-submit"><button type="submit" class="btn-primary" style="border:none;cursor:pointer;width:100%;font-size:1rem;">Send Message</button></div>
         </form>
       </div>
@@ -1342,8 +1405,6 @@
       <div class="footer-col">
         <h4>Amenities</h4>
         <ul>
-          <li><a href="#amenities">Café Healthy Bite</a></li>
-          <li><a href="#amenities">Steam Room & Spa</a></li>
           <li><a href="#equipment">BCA Machine</a></li>
           <li><a href="#equipment">Digital Schedules</a></li>
           <li><a href="#equipment">Secure Lockers</a></li>
@@ -1418,6 +1479,36 @@
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     observer.observe(el);
   });
+</script>
+<script>
+document.querySelector(".contact-form").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+
+  const data = {
+    name: form.querySelector('input[type="text"]').value,
+    phone: form.querySelector('input[type="tel"]').value,
+    email: form.querySelector('input[type="email"]').value,
+    interest: form.querySelector("select").value,
+    message: form.querySelector("textarea").value
+  };
+
+  try {
+    await fetch("https://script.google.com/macros/s/AKfycby8cFRIF_iUPkLagw3pWUDdJezWh5n-swMWwIONBlMzUFYvJOL741ZpPJA6GvkLYDg2AQ/exec", {
+      method: "POST",
+      mode: "no-cors",
+      body: JSON.stringify(data)
+    });
+
+    alert("Thank you! Your enquiry has been sent.");
+    form.reset();
+
+  } catch (err) {
+    console.log(err);
+    alert("Network error.");
+  }
+});
 </script>
 </body>
 </html>
