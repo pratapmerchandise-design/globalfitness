@@ -973,6 +973,23 @@ nav{
   transition: transform 0.3s ease, opacity 0.3s ease;
   transform-origin: center;
 }
+@media (min-width: 769px) {
+  .nav-links,
+  .navbar nav,
+  nav ul {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    height: auto !important;
+    pointer-events: auto !important;
+  }
+
+  .hamburger,
+  .menu-toggle {
+    display: none !important;
+  }
+}
 </style>
 </head>
 <body>
