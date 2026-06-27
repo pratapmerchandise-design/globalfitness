@@ -28,6 +28,24 @@
     color: var(--white);
     overflow-x: hidden;
   }
+
+@font-face {
+    font-family: "Gunplay";
+    src: url("gunplay/gunplay rg.otf") format("opentype");
+}
+h1.hero-title {
+  font-family: "Gunplay", sans-serif;
+  font-weight: normal; /* prevents browser fake-bolding */
+}
+h2.section-title {
+  font-family: "Gunplay", sans-serif;
+  font-weight: normal; /* add this */
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: 2px;
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 20px;
+}
 .review-cta { 
   text-align: center;
   margin-top: 42px;
@@ -69,9 +87,25 @@
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 40px; height: 72px;
   }
-  .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
-  .nav-logo img { height: 52px; filter: drop-shadow(0 0 8px rgba(255,107,0,0.5)); }
-  .nav-brand { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--orange); letter-spacing: 2px; line-height: 1; }
+  .nav-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-brand {
+  font-family: "Gunplay", sans-serif;
+  font-size: 0.85rem;
+  color: var(--orange);
+  letter-spacing: 3px;
+  line-height: 1;
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+.nav-brand span {
+  display: none;
+}
   .nav-brand span { display: block; font-size: 0.75rem; font-family: 'Barlow', sans-serif; font-weight: 300; color: var(--white); letter-spacing: 4px; text-transform: uppercase; }
 
   .nav-links { display: flex; gap: 32px; list-style: none; }
@@ -168,7 +202,7 @@
   }
   .hero-eyebrow::before { content: ''; display: block; width: 40px; height: 2px; background: var(--orange); }
   h1.hero-title {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: "Gunplay", sans-serif;
     font-size: clamp(3.5rem, 8vw, 7rem);
     line-height: 0.95; letter-spacing: 2px;
     color: var(--white);
@@ -202,7 +236,7 @@
     display: flex; gap: 48px; z-index: 2;
   }
   .stat { text-align: center; }
-  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--orange); line-height: 1; }
+  .stat-num { font-family: "Gunplay", sans-serif; font-size: 3rem; color: var(--orange); line-height: 1; }
   .stat-label { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gray); margin-top: 4px; }
 
   /* ─── SECTION COMMONS ─── */
@@ -215,7 +249,7 @@
   }
   .section-eyebrow::before { content: ''; display: inline-block; width: 32px; height: 2px; background: var(--orange); }
   h2.section-title {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: "Gunplay", sans-serif;
     font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 2px; line-height: 1;
     color: var(--white); margin-bottom: 20px;
   }
@@ -293,7 +327,7 @@
   .service-card:hover { background: var(--dark3); border-bottom-color: var(--orange); transform: translateY(-4px); }
   .service-card:hover::before { transform: scaleX(1); }
   .service-num {
-    font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem;
+    font-family: "Gunplay", sans-serif; font-size: 3.5rem;
     color: rgba(255,107,0,0.1); line-height: 1; margin-bottom: 8px;
     transition: color 0.3s;
   }
@@ -378,6 +412,43 @@
 }
 
 @media (max-width: 900px) {
+
+.nav-logo > div{
+    display:flex;
+    flex-direction:row !important;
+    align-items:center !important;
+    gap:12px;
+}
+
+.nav-brand{
+    display:block !important;
+    font-size:.82rem;
+    letter-spacing:1.5px;
+    line-height:1;
+    white-space:nowrap;      /* keeps it on one line */
+    margin-top:2px;          /* tiny optical adjustment */
+}
+
+.nav-logo img{
+    height:44px;
+}
+
+nav{
+    height:72px;
+    padding:0 22px;
+}
+
+  .hamburger{
+    display:flex;
+    margin-left:auto;
+    padding:6px;
+  }
+
+  .hamburger span{
+    width:30px;
+    height:3px;
+  }
+
   .amenities-grid {
     grid-template-columns: 1fr;
   }
@@ -391,7 +462,20 @@
   }
   .amenity-info strong { display: block; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.05rem; letter-spacing: 1px; color: var(--white); margin-bottom: 6px; }
   .amenity-info p { font-size: 0.88rem; color: rgba(245,245,245,0.65); line-height: 1.7; }
+@media (max-width: 900px) {
+  .nav-brand {
+    display: none;
+  }
+  
+  .nav-logo {
+    position: static;
+    transform: none;
+  }
 
+  .nav-logo img {
+    height: 44px;
+  }
+}
   /* ─── CAREERS ─── */
   #careers { background: var(--dark); }
   .careers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 60px; align-items: start; }
@@ -438,7 +522,7 @@
   .footer-col ul li a:hover { color: var(--orange); }
   .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
   .footer-bottom p { font-size: 0.8rem; color: rgba(245,245,245,0.35); }
-  .footer-tagline { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 3px; color: var(--orange); }
+  .footer-tagline { font-family: "Gunplay", sans-serif; font-size: 1rem; letter-spacing: 3px; color: var(--orange); }
 
   /* ─── ORANGE DIVIDER ─── */
   .divider { height: 4px; background: linear-gradient(90deg, var(--orange), var(--orange-dim), transparent); }
@@ -457,11 +541,50 @@
   /* ─── MOBILE HAMBURGER ─── */
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
   .hamburger span { display: block; width: 26px; height: 2px; background: var(--white); transition: all 0.3s; }
+@media (max-width: 900px) {
+  .nav-logo img {
+    height: 48px;
+    width: auto;
+    border-radius: 0;
+    background: none;
+    border: none;
+    padding: 0;
+  }
 
+  .hamburger {
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    background: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 8px;
+  }
+
+  .hamburger span {
+    background: var(--white);
+    width: 26px;
+  }
+
+
+
+  .mobile-bar span {
+    background: var(--black);
+    padding: 0 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.9rem;
+    color: var(--orange);
+    letter-spacing: 3px;
+    white-space: nowrap;
+  }
+}
 @media (max-width: 900px) {
   nav {
     padding: 0 24px;
   }
+  
 
   .nav-links {
     display: none;
@@ -841,7 +964,15 @@
       .gtf-locations__cards { flex-direction: row; overflow-x: auto; gap: 8px; }
       .gtf-loc-card { min-width: 220px; }
     }
-  
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hamburger span {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
 </style>
 </head>
 <body>
@@ -849,8 +980,11 @@
 <!-- NAV -->
 <nav>
   <a href="#home" class="nav-logo">
-    <img src="l1-removebg-preview.png" alt="The Global Fitness Logo">
-  </a>
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="l1-removebg-preview.png" alt="GTF Logo" style="height:36px;">
+    <div class="nav-brand">THE GLOBAL FITNESS</div>
+  </div>
+</a>
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
     <li><a href="#about">The Gym</a></li>
@@ -915,7 +1049,7 @@
         <p>The Global Fitness is located just steps away from your home or place of work, we are in <b>Vikaspuri, Shalimar Bagh, Kamla Nagar and Pitampura</b>. Our team includes trained, energetic and enthusiastic fitness professionals whose goal is to help you improve your health and fitness.</p>
         <p>We provide a hygienic, safe and state-of-the-art facility for our members — whether they are just starting an exercise program or are at an advanced level. The Global Fitness offers Personal Training, Bodybuilding, Cardio Equipment, Free Weights, Strength Biomechanics and Group Fitness Classes.</p>
         <p>Good health means a complete physical, mental, social and spiritual wellbeing. The only way to achieve a fit body and mind is to remain consistent with a healthy lifestyle.</p>
-        <p style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--orange);letter-spacing:3px;margin-top:8px;">Get In... Get Fit... Get Life…</p>
+        <p style="font-family:'Gunplay',sans-serif;font-size:1.4rem;color:var(--orange);letter-spacing:3px;margin-top:8px;">Get In... Get Fit... Get Life…</p>
         <div class="hours-box">
           <div class="hours-title">Opening Hours</div>
           <div class="hours-row"><span>Monday – Saturday</span><span style="color:var(--orange)">5:30 AM – 11:00 PM</span></div>
@@ -1325,7 +1459,7 @@ Power Yoga</b> helping you with fitness without straining or risking any injurie
           <div class="contact-value" style="font-style:italic;color:rgba(245,245,245,0.7);">"To inspire people of all ages to enhance the quality of human life by reaching higher fitness goals and empowering clients with knowledge to make healthy lifestyle choices."</div>
         </div>
         <div style="margin-top:32px;">
-          <p style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--orange);letter-spacing:3px;">Get In... Get Fit... Get Life…</p>
+          <p style="font-family:'Gunplay',sans-serif;font-size:2rem;color:var(--orange);letter-spacing:3px;">Get In... Get Fit... Get Life…</p>
         </div>
       </div>
       <div>
@@ -1446,22 +1580,6 @@ Power Yoga</b> helping you with fitness without straining or risking any injurie
   });
 
   // Hamburger
-  document.querySelector('.hamburger').addEventListener('click', function() {
-    const links = document.querySelector('.nav-links');
-    if (links.style.display === 'flex') {
-      links.style.display = 'none';
-    } else {
-      links.style.display = 'flex';
-      links.style.flexDirection = 'column';
-      links.style.position = 'absolute';
-      links.style.top = '72px';
-      links.style.left = '0';
-      links.style.right = '0';
-      links.style.background = 'rgba(10,10,10,0.98)';
-      links.style.padding = '20px 40px';
-      links.style.gap = '16px';
-    }
-  });
 
   // Intersection Observer for fade-in
   const observer = new IntersectionObserver((entries) => {
@@ -1509,6 +1627,43 @@ document.querySelector(".contact-form").addEventListener("submit", async functio
     alert("Network error.");
   }
 });
+
+
+</script>
+<script>
+  (function() {
+    var btn = document.querySelector('.hamburger');
+    var menu = document.querySelector('.nav-links');
+    var open = false;
+
+    btn.addEventListener('click', function() {
+      var bars = btn.querySelectorAll('span');
+      open = !open;
+
+      if (open) {
+        menu.style.cssText = 'display:flex; flex-direction:column; position:absolute; top:72px; left:0; right:0; background:rgba(10,10,10,0.98); padding:20px 40px; gap:16px; z-index:999; animation:slideDown 0.3s ease;';
+        bars[0].style.transform = 'translateY(7px) rotate(45deg)';
+        bars[1].style.opacity = '0';
+        bars[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+      } else {
+        menu.style.display = 'none';
+        bars[0].style.transform = 'none';
+        bars[1].style.opacity = '1';
+        bars[2].style.transform = 'none';
+      }
+    });
+
+    menu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        open = false;
+        menu.style.display = 'none';
+        var bars = btn.querySelectorAll('span');
+        bars[0].style.transform = 'none';
+        bars[1].style.opacity = '1';
+        bars[2].style.transform = 'none';
+      });
+    });
+  })();
 </script>
 </body>
 </html>
